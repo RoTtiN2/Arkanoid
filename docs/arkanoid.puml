@@ -1,0 +1,35 @@
+startuml Arkanoid
+
+class Juego
+Class Jugador
+
+class Habilidad
+class Tabla
+class Bola
+
+class Bloque
+class BloqueNormal
+class BloqueDuro
+
+class Nivel
+class Escenario
+class PowerUp
+
+Juego "1" *-- "1" Jugador
+Jugador "1" o-- "*" Tabla
+Paleta "1" o-- "1" Bola
+
+Paleta *-- Habilidad
+Pelota -- Bloque : "Golpear"
+
+Bloque <|-- BloqueNormal
+Bloque <|-- BloqueDuro
+
+Escenario "1" *-- "*" Nivel
+Nivel "1" *-- "*" Bloque
+Nivel "1" *-- "*" PowerUp
+
+PowerUp --|> Bloque
+PowerUp --|> Habilidad
+
+@enduml
