@@ -193,4 +193,5 @@ void manejarEventos(sf::RenderWindow &ventana) {
             ventana.close();
         }
     }
+
 }

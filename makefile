@@ -1,26 +1,29 @@
+# Directorios de origen y destino
+SRC_DIR := src
+BIN_DIR := bin
 
-### 6. Crear `Makefile`
+SFML := -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio -lbox2d
 
-Para facilitar la compilación, se puede crear un Makefile.
+# Obtener todos los archivos .cpp en el directorio de origen
+CPP_FILES := $(wildcard $(SRC_DIR)/*.cpp)
 
-```makefile
-CXX = g++
-CXXFLAGS = -std=c++11 -Wall -Iinclude
-LDFLAGS = -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
+# Generar los nombres de los archivos .exe en el directorio de destino
+EXE_FILES := $(patsubst $(SRC_DIR)/%.cpp,$(BIN_DIR)/%.exe,$(CPP_FILES))
 
-SRC = src/main.cpp src/game.cpp
-OBJ = $(SRC:.cpp=.o)
-EXEC = arcanoid
+# Regla para compilar cada archivo .cpp y generar el archivo .exe correspondiente
+$(BIN_DIR)/%.exe: $(SRC_DIR)/%.cpp
+	g++ $< -o $@ $(SFML) -Iinclude
 
-all: $(EXEC)
+# Regla por defecto para compilar todos los archivos .cpp
+all: $(EXE_FILES)
 
-$(EXEC): $(OBJ)
-	$(CXX) -o $@ $^ $(LDFLAGS)
+# Regla para ejecutar cada archivo .exe
+run%: $(BIN_DIR)/%.exe
+	./$<
 
-%.o: %.cpp
-	$(CXX) $(CXXFLAGS) -c $< -o $@
-
+# Regla para limpiar los archivos generados
 clean:
-	rm -f $(OBJ) $(EXEC)
+	rm -f $(EXE_FILES)
 
 .PHONY: all clean
+.PHONY: run-%

@@ -4,11 +4,11 @@ class Juego
 Class Jugador
 
 class Habilidad
-class Tabla
+class Paleta
 class Bola
 
+class Ladrillo
 class Bloque
-class BloqueNormal
 class BloqueDuro
 
 class Nivel
