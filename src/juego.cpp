@@ -1,4 +1,4 @@
-#include "juego.hpp"
+#include <juego.hpp>
 #include <iostream>
 #include <cstdlib>
 
