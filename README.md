@@ -9,4 +9,4 @@ Para compilar el juego, asegúrate de tener SFML instalado. Luego, usa el siguie
 ```sh
 make
 
-para ejecutar el juego usa el comando ./arcanoid
+para ejecutar el juego usa el comando make runarkanoid_completo

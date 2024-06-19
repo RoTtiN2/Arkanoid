@@ -1,35 +1,100 @@
-@startuml Arkanoid
+@startuml
+' Definición de las clases y estructuras
 
-class Juego
-Class Jugador
+class Bloque {
+    +bool estado
+    +RectangleShape bloque
+}
 
-class Habilidad
-class Paleta
-class Bola
+class Pastilla {
+    +bool estado
+    +RectangleShape pastilla
+}
 
-class Ladrillo
-class Bloque
-class BloqueDuro
+class Vector2f {
+    +float x
+    +float y
+    +Vector2f(float x, float y)
+}
 
-class Nivel
-class Escenario
-class PowerUp
+class CircleShape {
+    +void setOrigin(float x, float y)
+    +void setFillColor(Color color)
+    +void setPosition(float x, float y)
+    +Vector2f getPosition()
+    +void move(float offsetX, float offsetY)
+    +FloatRect getGlobalBounds()
+}
 
-Juego "1" *-- "1" Jugador
-Jugador "1" o-- "*" Tabla
-Paleta "1" o-- "1" Bola
+class RectangleShape {
+    +void setOrigin(float x, float y)
+    +void setFillColor(Color color)
+    +void setPosition(float x, float y)
+    +Vector2f getPosition()
+    +void move(float offsetX, float offsetY)
+    +FloatRect getGlobalBounds()
+    +void setSize(Vector2f size)
+    +Vector2f getSize()
+    +void setScale(float factorX, float factorY)
+}
 
-Paleta *-- Habilidad
-Pelota -- Bloque : "Golpear"
+class RenderWindow {
+    +void setFramerateLimit(unsigned int limit)
+    +void draw(Drawable &drawable)
+    +void clear()
+    +void display()
+    +bool isOpen()
+    +bool pollEvent(Event &event)
+    +Vector2u getSize()
+}
 
-Bloque <|-- BloqueNormal
-Bloque <|-- BloqueDuro
+class Font {
+    +bool loadFromFile(string filename)
+}
 
-Escenario "1" *-- "*" Nivel
-Nivel "1" *-- "*" Bloque
-Nivel "1" *-- "*" PowerUp
+class Text {
+    +void setFont(Font &font)
+    +void setString(string text)
+    +void setPosition(float x, float y)
+}
 
-PowerUp --|> Bloque
-PowerUp --|> Habilidad
+class SoundBuffer {
+    +bool loadFromFile(string filename)
+}
+
+class Sound {
+    +void setBuffer(SoundBuffer &buffer)
+    +void play()
+}
+
+class Event {
+    +enum EventType { Closed }
+    +EventType type
+}
+
+class Color {
+    +static const Color Blue
+    +static const Color Green
+    +static const Color White
+    +static const Color Cyan
+    +static const Color Yellow
+    +static const Color Magenta
+}
+
+class Keyboard {
+    +static bool isKeyPressed(Key key)
+    +enum Key { Right, Left }
+}
+
+' Relaciones entre las clases
+
+Bloque --> RectangleShape
+Pastilla --> RectangleShape
+CircleShape --> Vector2f
+RectangleShape --> Vector2f
+RenderWindow --> Vector2u
+Text --> Font
+Sound --> SoundBuffer
+Event --> EventType
 
 @enduml
