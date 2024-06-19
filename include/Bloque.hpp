@@ -28,5 +28,4 @@ extern Vector2f velDirBola;
 // Sonidos
 extern SoundBuffer bloqueSB;
 extern Sound bloqueS;
-
 #endif // BLOQUE_HPP

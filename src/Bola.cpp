@@ -63,7 +63,7 @@ void Bola::detectarColisionConBloques(Bloque bloques[8][10], int& cantBloques, P
                 bloqueS.play();
                 srand(time(NULL));
                 int auxPastilla = 1 + rand() % 6;
-                if (auxPastilla == 1 && !pastilla.estado) {
+                if (auxPastilla == 1 && !pastilla.setEstado) {
                     pastilla.estado = true;
                     pastilla.pastilla.setPosition(bloques[i][j].bloque.getPosition().x, bloques[i][j].bloque.getPosition().y);
                 }

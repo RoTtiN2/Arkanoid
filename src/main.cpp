@@ -2,7 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
 #include <time.h>
-#include "juego.hpp"
+#include "Arkanoid_completo.hpp"
 
 // Implementación de las variables globales
 Bloque bloques[8][10];
@@ -23,7 +23,7 @@ int timer = 0;
 
 int main() {
     // Inicializar el juego
-    inicializarJuego();
+    inicializarArkanoid();
     
     sf::RenderWindow ventana(sf::VideoMode(650, 500), "Arcanoid");
     ventana.setFramerateLimit(60);
