@@ -97,4 +97,17 @@ Text --> Font
 Sound --> SoundBuffer
 Event --> EventType
 
+arkanoid *-- Bloque
+arkanoid *-- Pastilla
+arkanoid *-- Vector2f
+arkanoid *-- CircleShape
+arkanoid *-- RectangleShape
+arkanoid *-- RenderWindow
+arkanoid *-- Font
+arkanoid *-- Text
+arkanoid *-- SoundBuffer
+arkanoid *-- Sound
+arkanoid *-- Event
+arkanoid *-- Color
+arkanoid *-- Keyboard
 @enduml
