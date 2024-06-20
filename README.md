@@ -76,7 +76,7 @@ Para poder realizar commits desde Visual Studio Code es necesario tener instalad
 1. **Ejecutar el Juego**: Ejecuta el binario compilado.
 
     ```bash
-    ./arcanoid
+    ./Arcanoid o en visual studio make runArkanoid
     ```
 
 2. **Controlar la Paleta**: Usa las teclas de flecha izquierda y derecha para mover la paleta.
