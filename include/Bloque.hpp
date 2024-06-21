@@ -4,16 +4,16 @@
 #include <SFML/Graphics.hpp>
 
 class Bloque {
+private:
+    sf::RectangleShape bloque;
+    bool estado;
+
 public:
     Bloque();
-
     void inicializar(float x, float y, bool estado, sf::Color color);
-    void dibujar(sf::RenderWindow& window);
-    bool colision(sf::Vector2f ballPosition);
-
-private:
-    bool estado;
-    sf::RectangleShape bloque;
+    bool colision(sf::FloatRect bolaPos);
+    void dibujar(sf::RenderWindow& ventana);
+    sf::Vector2f getPosition();
 };
 
 #endif // BLOQUE_HPP

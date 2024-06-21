@@ -1,24 +1,28 @@
-#include "jugador.hpp"
+#include "Jugador.hpp"
 
-Jugador::Jugador(sf::RenderWindow& window) {
-    paleta = sf::RectangleShape(sf::Vector2f(60, 10));
-    paleta.setOrigin(paleta.getSize().x / 2, paleta.getSize().y / 2);
-    paleta.setFillColor(sf::Color::Green);
-    paleta.setPosition(window.getSize().x / 2, window.getSize().y - 20);
+Jugador::Jugador(sf::Vector2f size, sf::Vector2f position, sf::Color color) {
+    paleta.setSize(size);
+    paleta.setOrigin(size.x / 2, size.y / 2);
+    paleta.setFillColor(color);
+    paleta.setPosition(position);
 }
 
-void Jugador::moverDerecha() {
-    paleta.move(3.5, 0);
+void Jugador::moveLeft(float deltaTime) {
+    paleta.move(-3.5f * deltaTime, 0);
 }
 
-void Jugador::moverIzquierda() {
-    paleta.move(-3.5, 0);
+void Jugador::moveRight(float deltaTime) {
+    paleta.move(3.5f * deltaTime, 0);
 }
 
-void Jugador::dibujar(sf::RenderWindow& window) {
+void Jugador::draw(sf::RenderWindow &window) {
     window.draw(paleta);
 }
 
 sf::Vector2f Jugador::getPosition() {
     return paleta.getPosition();
+}
+
+sf::FloatRect Jugador::getGlobalBounds() {
+    return paleta.getGlobalBounds();
 }

@@ -4,18 +4,18 @@
 #include <SFML/Graphics.hpp>
 
 class Pastilla {
+private:
+    sf::RectangleShape pastilla;
+    bool estado;
+
 public:
     Pastilla();
-
     void inicializar(float x, float y);
     void mover();
-    void dibujar(sf::RenderWindow& window);
-    bool colision(sf::FloatRect objectBounds);
+    void dibujar(sf::RenderWindow& ventana);
+    bool colision(sf::FloatRect jugadorPos);
     bool getEstado();
-
-private:
-    bool estado;
-    sf::RectangleShape pastilla;
+    void desactivar();
 };
 
 #endif // PASTILLA_HPP

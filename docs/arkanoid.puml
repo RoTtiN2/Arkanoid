@@ -1,113 +1,78 @@
-@startuml
-' Definición de las clases y estructuras
+@startuml Arkanoid
+
+class Jugador {
+  + Jugador(RenderWindow& ventana)
+  + moverDerecha()
+  + moverIzquierda()
+  + dibujar(RenderWindow& ventana)
+  + escalarPaleta()
+  + restaurarEscala()
+  + getPosition() : FloatRect
+  - paleta : RectangleShape
+}
+
+class Puntuaje {
+  - puntuacion: int
+  - textoPuntuacion: sf::Text
+  - fuente: sf::Font
+  + Puntuaje()
+  + incrementarPuntuacion(puntos: int)
+  + reiniciarPuntuacion()
+  + draw(window: RenderWindow&)
+}
 
 class Bloque {
-    +bool estado
-    +RectangleShape bloque
+  + Bloque()
+  + inicializar(float x, float y, bool estado, Color color)
+  + colision(FloatRect bolaPos) : bool
+  + dibujar(RenderWindow& ventana)
+  + getPosition() : Vector2f
+  - bloque : RectangleShape
+  - estado : bool
+}
+
+class Bola {
+  + Bola(RenderWindow& ventana)
+  + mover()
+  + rebotar()
+  + dibujar(RenderWindow& ventana)
+  + getPosition() : FloatRect
+  + cambiarDireccionX()
+  + cambiarDireccionY()
+  - bola : CircleShape
+  - velDirBola : Vector2f
 }
 
 class Pastilla {
-    +bool estado
-    +RectangleShape pastilla
+  + Pastilla()
+  + inicializar(float x, float y)
+  + mover()
+  + dibujar(RenderWindow& ventana)
+  + colision(FloatRect jugadorPos) : bool
+  + getEstado() : bool
+  + desactivar()
+  - pastilla : RectangleShape
+  - estado : bool
 }
 
-class Vector2f {
-    +float x
-    +float y
-    +Vector2f(float x, float y)
+class Main {
+  + main()
 }
 
-class CircleShape {
-    +void setOrigin(float x, float y)
-    +void setFillColor(Color color)
-    +void setPosition(float x, float y)
-    +Vector2f getPosition()
-    +void move(float offsetX, float offsetY)
-    +FloatRect getGlobalBounds()
-}
+Jugador "1" *-- "1" Bola
+Jugador "1" o-- "1" Bola
+Jugador "1" o-- "0..*" Bloque
+Jugador "1" o-- "0..1" Pastilla
+Jugador "1" o-- "1" Puntuaje
 
-class RectangleShape {
-    +void setOrigin(float x, float y)
-    +void setFillColor(Color color)
-    +void setPosition(float x, float y)
-    +Vector2f getPosition()
-    +void move(float offsetX, float offsetY)
-    +FloatRect getGlobalBounds()
-    +void setSize(Vector2f size)
-    +Vector2f getSize()
-    +void setScale(float factorX, float factorY)
-}
+Bloque "0.." *-- "1" Bola
 
-class RenderWindow {
-    +void setFramerateLimit(unsigned int limit)
-    +void draw(Drawable &drawable)
-    +void clear()
-    +void display()
-    +bool isOpen()
-    +bool pollEvent(Event &event)
-    +Vector2u getSize()
-}
+Main "1" *-- "1" Jugador
+Main "1" *-- "0..*" Bloque
+Main "1" *-- "1" Bola
+Main "1" o-- "0..1" Pastilla
+Main "1" o-- "1" Puntuaje
 
-class Font {
-    +bool loadFromFile(string filename)
-}
+Pastilla <-- Bloque
 
-class Text {
-    +void setFont(Font &font)
-    +void setString(string text)
-    +void setPosition(float x, float y)
-}
-
-class SoundBuffer {
-    +bool loadFromFile(string filename)
-}
-
-class Sound {
-    +void setBuffer(SoundBuffer &buffer)
-    +void play()
-}
-
-class Event {
-    +enum EventType { Closed }
-    +EventType type
-}
-
-class Color {
-    +static const Color Blue
-    +static const Color Green
-    +static const Color White
-    +static const Color Cyan
-    +static const Color Yellow
-    +static const Color Magenta
-}
-
-class Keyboard {
-    +static bool isKeyPressed(Key key)
-    +enum Key { Right, Left }
-}
-
-' Relaciones entre las clases
-
-Bloque --> RectangleShape
-Pastilla --> RectangleShape
-CircleShape --> Vector2f
-RectangleShape --> Vector2f
-RenderWindow --> Vector2u
-Text --> Font
-Sound --> SoundBuffer
-Event --> EventType
-
-arkanoid *-- Bloque
-arkanoid *-- Pastilla
-arkanoid *-- Vector2f
-arkanoid *-- CircleShape
-arkanoid *-- RectangleShape
-arkanoid *-- RenderWindow
-arkanoid *-- Font
-arkanoid *-- Text
-arkanoid *-- SoundBuffer
-arkanoid *-- Sound
-arkanoid *-- Event
-arkanoid *-- Color
-arkanoid *-- Keyboard
 @enduml
