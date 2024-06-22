@@ -77,7 +77,7 @@ Para poder realizar commits desde Visual Studio Code es necesario tener instalad
 1. **Ejecutar el Juego**: Ejecuta el binario compilado.
 
     ```bash
-    ./Arcanoid o en visual studio make runArkanoid
+    ./Main o en visual studio make runMain
     ```
 
 2. **Controlar la Paleta**: Usa las teclas de flecha izquierda y derecha para mover la paleta.
@@ -114,6 +114,10 @@ Para poder realizar commits desde Visual Studio Code es necesario tener instalad
 
 - **Fuentes**: Asegúrate de que `Fonts/ARCADE.TTF` esté en el directorio correcto.
 - **Sonidos**: Asegúrate de que los archivos de sonido `ReboteParedes.wav`, `RebotePaleta.wav` y `ReboteLadrillo.wav` estén en el directorio correcto.
+
+## Creado por:
+
+Luis angel velazquez bravo reg: 23110166
 
 ## Agradecimientos
 
