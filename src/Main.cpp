@@ -1,6 +1,6 @@
 #include "Main.hpp"
 
-struct Bloque Bloques[8][10];
+struct Bloque Bloque[8][10];
 int CantBloques = 56;
 CircleShape Bola;
 Vector2f VelDirBola(-3, -3);
