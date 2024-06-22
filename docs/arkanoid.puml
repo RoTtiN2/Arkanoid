@@ -55,8 +55,9 @@ class Pastilla {
   - estado : bool
 }
 
-class Main {
-  + main()
+class Juego {
+  + Iniciar()
+  + EstaEjecutandose()
 }
 
 Jugador "1" *-- "1" Bola
@@ -67,11 +68,11 @@ Jugador "1" o-- "1" Puntuaje
 
 Bloque "0.." *-- "1" Bola
 
-Main "1" *-- "1" Jugador
-Main "1" *-- "0..*" Bloque
-Main "1" *-- "1" Bola
-Main "1" o-- "0..1" Pastilla
-Main "1" o-- "1" Puntuaje
+Juego "1" *-- "1" Jugador
+Juego "1" *-- "0..*" Bloque
+Juego "1" *-- "1" Bola
+Juego "1" o-- "0..1" Pastilla
+Juego "1" o-- "1" Puntuaje
 
 Pastilla <-- Bloque
 

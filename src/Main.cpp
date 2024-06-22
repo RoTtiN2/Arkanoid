@@ -1,23 +1,10 @@
-#include "Main.hpp"
+#include <Pastilla.hpp>
 
-struct Bloque Bloque[8][10];
-int CantBloques = 56;
-CircleShape Bola;
-Vector2f VelDirBola(-3, -3);
-RectangleShape Paleta;
-bool EnColision = false;
-bool Activo = true;
-Font Fuente;
-Text Texto;
-int IdCV = 1;
-int IdCH = 1;
-SoundBuffer ParedSB, PaletaSB, BloqueSB;
-Sound ParedS, PaletaS, BloqueS;
-int Timer = 0;
-Pastilla Pastilla;
-int AuxPastilla;
 
-int Main() {
-    // Implementación del programa principal
+int main(int argc, char const *argv[])
+{
+    Pastilla p;
+
+    p.dibujar();
     return 0;
 }
