@@ -1,5 +1,8 @@
 # Juego de Arcanoid
 ![PortadaArkanoid](https://github.com/RoTtiN2/PROGRAMAS-TERCERO/assets/160083533/b7705685-a0ec-4537-a689-3bbed128dbbd)
+![arkanoid 2](https://github.com/RoTtiN2/Arkanoid/assets/160083533/6d284602-8fbd-46cc-af72-9cec77021359)
+![arkanoid 1](https://github.com/RoTtiN2/Arkanoid/assets/160083533/fab76246-9cfe-4e83-aa4c-f801c66ccaf9)
+
 
 Este proyecto es una implementación simple del clásico juego arcade "Arkanoid" utilizando la biblioteca SFML en C++. El juego consiste en controlar una paleta para hacer rebotar una bola y romper bloques. El objetivo es despejar todos los bloques sin dejar que la bola caiga fuera de la pantalla.
 
