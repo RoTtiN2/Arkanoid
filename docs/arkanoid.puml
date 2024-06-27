@@ -62,18 +62,19 @@ class Juego {
 
 Jugador "1" *-- "1" Bola
 Jugador "1" o-- "1" Bola
-Jugador "1" o-- "0..*" Bloque
+Jugador "1" o-- "0..1*" Bloque
+Jugador "1" *-- Pastilla
 Jugador "1" o-- "0..1" Pastilla
-Jugador "1" o-- "1" Puntuaje
-
-Bloque "0.." *-- "1" Bola
+Jugador "1" *-- "0..1" Puntuaje
 
 Juego "1" *-- "1" Jugador
-Juego "1" *-- "0..*" Bloque
+Juego "1" *-- "0..1*" Bloque
 Juego "1" *-- "1" Bola
-Juego "1" o-- "0..1" Pastilla
-Juego "1" o-- "1" Puntuaje
+Juego "1" *-- "0..1" Pastilla
+Juego "1" *-- "1" Puntuaje
 
-Pastilla <-- Bloque
+Bloque "1" *-- "0..1" Puntuaje
+Bola "1" o-- "1" Bloque
+Pastilla "1" o-- "1" Bola
 
 @enduml

@@ -2,7 +2,7 @@
 SRC_DIR := src
 BIN_DIR := bin
 
-SFML := g++ Juego.cpp -o Juego -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
+SFML := -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
 
 # Obtener todos los archivos .cpp en el directorio de origen
 CPP_FILES := $(wildcard $(SRC_DIR)/*.cpp)

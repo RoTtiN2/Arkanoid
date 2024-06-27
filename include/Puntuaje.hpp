@@ -1,5 +1,6 @@
 #ifndef PUNTUAJE_HPP
 #define PUNTUAJE_HPP
+#include <iostream>
 
 #include <SFML/Graphics.hpp>
 
