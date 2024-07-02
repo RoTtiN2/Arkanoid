@@ -121,6 +121,7 @@ Para poder realizar commits desde Visual Studio Code es necesario tener instalad
 ## Creado por:
 
 Luis angel velazquez bravo reg: 23110166
+Luis Daniel Brambila Ramos reg. 23110116
 
 ## Agradecimientos
 
